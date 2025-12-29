@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+<manifest filename="C:\Users\brits\Desktop\Energy\Energy\manifest.xml"/>
+<pcToLineNum>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="1" lineNum="26" parent="globals" pc="268435460" symbol="getApp"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="1" lineNum="27" parent="globals" pc="268435470" symbol="getApp"/>
+<entry filename="c:\\Users\\brits\\Desktop\\Energy\\Energy\\bin\\gen\\006-B4314-00\\source\\Rez.mcgen" id="2" lineNum="7" parent="globals/Rez" pc="268435481" symbol="&lt;init&gt;"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="3" lineNum="7" parent="globals/EnergyView" pc="268435501" symbol="&lt;init&gt;"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="4" lineNum="5" parent="globals/EnergyApp" pc="268435513" symbol="&lt;init&gt;"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="5" lineNum="17" parent="globals/EnergyView" pc="268435525" symbol="onShow"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="5" lineNum="18" parent="globals/EnergyView" pc="268435527" symbol="onShow"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="6" lineNum="21" parent="globals/EnergyView" pc="268435535" symbol="fetchData"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="6" lineNum="22" parent="globals/EnergyView" pc="268435538" symbol="fetchData"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="6" lineNum="24" parent="globals/EnergyView" pc="268435546" symbol="fetchData"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="6" lineNum="26" parent="globals/EnergyView" pc="268435553" symbol="fetchData"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="6" lineNum="35" parent="globals/EnergyView" pc="268435586" symbol="fetchData"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="7" lineNum="13" parent="globals/EnergyView" pc="268435618" symbol="initialize"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="7" lineNum="14" parent="globals/EnergyView" pc="268435620" symbol="initialize"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="44" parent="globals/EnergyView" pc="268435633" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="45" parent="globals/EnergyView" pc="268435636" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="46" parent="globals/EnergyView" pc="268435667" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="47" parent="globals/EnergyView" pc="268435675" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="48" parent="globals/EnergyView" pc="268435686" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="53" parent="globals/EnergyView" pc="268435690" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="55" parent="globals/EnergyView" pc="268435694" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="56" parent="globals/EnergyView" pc="268435711" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="59" parent="globals/EnergyView" pc="268435735" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="60" parent="globals/EnergyView" pc="268435752" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="63" parent="globals/EnergyView" pc="268435782" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="64" parent="globals/EnergyView" pc="268435786" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="8" lineNum="67" parent="globals/EnergyView" pc="268435806" symbol="onReceive"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="70" parent="globals/EnergyView" pc="268435818" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="71" parent="globals/EnergyView" pc="268435821" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="72" parent="globals/EnergyView" pc="268435833" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="73" parent="globals/EnergyView" pc="268435841" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="75" parent="globals/EnergyView" pc="268435858" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="76" parent="globals/EnergyView" pc="268435867" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="78" parent="globals/EnergyView" pc="268435871" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="79" parent="globals/EnergyView" pc="268435879" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="86" parent="globals/EnergyView" pc="268435913" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="89" parent="globals/EnergyView" pc="268435917" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="90" parent="globals/EnergyView" pc="268435942" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="91" parent="globals/EnergyView" pc="268435949" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="93" parent="globals/EnergyView" pc="268435981" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="94" parent="globals/EnergyView" pc="268435988" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="95" parent="globals/EnergyView" pc="268436013" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyView.mc" id="9" lineNum="96" parent="globals/EnergyView" pc="268436020" symbol="onUpdate"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="10" lineNum="12" parent="globals/EnergyApp" pc="268436053" symbol="onStart"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="11" lineNum="20" parent="globals/EnergyApp" pc="268436056" symbol="getInitialView"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="11" lineNum="21" parent="globals/EnergyApp" pc="268436058" symbol="getInitialView"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="12" lineNum="7" parent="globals/EnergyApp" pc="268436084" symbol="initialize"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="12" lineNum="8" parent="globals/EnergyApp" pc="268436086" symbol="initialize"/>
+<entry filename="C:\\Users\\brits\\Desktop\\Energy\\Energy\\source\\EnergyApp.mc" id="13" lineNum="16" parent="globals/EnergyApp" pc="268436099" symbol="onStop"/>
+<entry filename="c:\\Users\\brits\\Desktop\\Energy\\Energy\\bin\\gen\\006-B4314-00\\source\\Rez.mcgen" id="14" lineNum="14" parent="globals/Rez/Layouts" pc="268436102" symbol="MainLayout"/>
+<entry filename="c:\\Users\\brits\\Desktop\\Energy\\Energy\\bin\\gen\\006-B4314-00\\source\\Rez.mcgen" id="14" lineNum="15" parent="globals/Rez/Layouts" pc="268436113" symbol="MainLayout"/>
+<entry filename="c:\\Users\\brits\\Desktop\\Energy\\Energy\\bin\\gen\\006-B4314-00\\source\\Rez.mcgen" id="14" lineNum="16" parent="globals/Rez/Layouts" pc="268436200" symbol="MainLayout"/>
+<entry filename="c:\\Users\\brits\\Desktop\\Energy\\Energy\\bin\\gen\\006-B4314-00\\source\\Rez.mcgen" id="14" lineNum="18" parent="globals/Rez/Layouts" pc="268436250" symbol="MainLayout"/>
+</pcToLineNum>
+<symbolTable>
+<entry id="9" method="true" symbol="fetchData"/>
+<entry id="8388639" module="true" symbol="Graphics"/>
+<entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+<entry id="14" method="true" symbol="MainLayout"/>
+<entry id="7" object="true" symbol="EnergyView"/>
+<entry field="true" id="8388611" module="true" symbol="Toybox"/>
+<entry field="true" id="15" symbol="AppName"/>
+<entry id="5" module="true" symbol="globals/Rez/Strings"/>
+<entry id="8389594" symbol="headers"/>
+<entry id="8389345" symbol="rezId"/>
+<entry id="8388648" module="true" symbol="WatchUi"/>
+<entry id="2" module="true" symbol="globals/Rez"/>
+<entry field="true" id="13" symbol="id_monkey"/>
+<entry id="8389124" method="true" symbol="onUpdate"/>
+<entry field="true" id="8389065" symbol="locY"/>
+<entry field="true" id="8389064" symbol="locX"/>
+<entry id="8388771" module="true" object="true" symbol="Drawables"/>
+<entry id="8389275" method="true" symbol="getApp"/>
+<entry id="4" module="true" symbol="globals/Rez/Layouts"/>
+<entry field="true" id="8389063" symbol="identifier"/>
+<entry field="true" id="11" symbol="solar"/>
+<entry id="8388637" module="true" symbol="Communications"/>
+<entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+<entry id="8389844" symbol="responseType"/>
+<entry id="8388786" method="true" symbol="method"/>
+<entry id="8388644" module="true" symbol="System"/>
+<entry id="8388769" module="true" object="true" symbol="Rez"/>
+<entry id="10" method="true" symbol="onReceive"/>
+<entry field="true" id="8388718" method="true" symbol="error"/>
+<entry id="8388640" module="true" symbol="Lang"/>
+<entry field="true" id="12" symbol="LauncherIcon"/>
+<entry id="8388610" symbol="statics"/>
+<entry id="8389123" method="true" symbol="onShow"/>
+<entry id="8389350" module="true" symbol="globals"/>
+<entry id="8388770" module="true" object="true" symbol="Strings"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry field="true" id="8388961" symbol="power"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry id="8389281" method="true" symbol="onStop"/>
+<entry id="8" module="true" symbol="Layouts"/>
+<entry id="6" object="true" symbol="EnergyApp"/>
+<entry id="8388635" module="true" symbol="Application"/>
+</symbolTable>
+<localVars>
+<entry endPc="268435616" name="url" stackId="1" startPc="268435538"/>
+<entry endPc="268435616" name="options" stackId="2" startPc="268435538"/>
+<entry arg="true" endPc="268435817" name="responseCode" stackId="1" startPc="268435633"/>
+<entry arg="true" endPc="268435817" name="data" stackId="2" startPc="268435633"/>
+<entry endPc="268435775" name="dict" stackId="3" startPc="268435690"/>
+<entry endPc="268435800" name="ex" stackId="4" startPc="268435782"/>
+<entry arg="true" endPc="268436052" name="dc" stackId="1" startPc="268435818"/>
+<entry endPc="268436051" name="w" stackId="2" startPc="268435821"/>
+<entry endPc="268436051" name="y" stackId="3" startPc="268435821"/>
+<entry arg="true" endPc="268436259" name="dc" stackId="1" startPc="268436102"/>
+<entry endPc="268436259" name="rez_cmp_local_bitmap_id_monkey" stackId="2" startPc="268436113"/>
+</localVars>
+<deviceInfo deviceVersion="5c7ae9cf907f88c116a91dc4ffd75be9b5b7d2e9" partNumber="006-B4314-00"/>
+<annotations>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="id_monkey"/>
+</annotations>
+<dataEntryOffsetMappings>
+<dataEntry label="globals" offset="58" parentId="" symbolId="globals" type="module"/>
+<dataEntry label="globals/Rez" offset="125" parentId="globals" symbolId="Rez" type="module"/>
+<dataEntry label="globals/EnergyView" offset="178" parentId="globals" symbolId="EnergyView" type="class"/>
+<dataEntry label="globals/EnergyApp" offset="285" parentId="globals" symbolId="EnergyApp" type="class"/>
+<dataEntry label="globals/Rez/Drawables" offset="356" parentId="Rez" symbolId="Drawables" type="module"/>
+<dataEntry label="globals/Rez/Layouts" offset="400" parentId="Rez" symbolId="Layouts" type="module"/>
+<dataEntry label="globals/Rez/Strings" offset="435" parentId="Rez" symbolId="Strings" type="module"/>
+</dataEntryOffsetMappings>
+<functions>
+<functionEntry accessMode="public" endPc="268435480" name="getApp" startPc="268435460">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435500" name="&lt;init&gt;" parent="Rez" startPc="268435481">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435512" name="&lt;init&gt;" parent="EnergyView" startPc="268435501">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435524" name="&lt;init&gt;" parent="EnergyApp" startPc="268435513">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435534" name="onShow" parent="EnergyView" startPc="268435525">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435617" name="fetchData" parent="EnergyView" startPc="268435535">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435632" name="initialize" parent="EnergyView" startPc="268435618">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435817" name="onReceive" parent="EnergyView" startPc="268435633">
+<param id="responseCode"/>
+<param id="data"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436052" name="onUpdate" parent="EnergyView" startPc="268435818">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436055" name="onStart" parent="EnergyApp" startPc="268436053">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436083" name="getInitialView" parent="EnergyApp" startPc="268436056">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436098" name="initialize" parent="EnergyApp" startPc="268436084">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436101" name="onStop" parent="EnergyApp" startPc="268436099">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436259" name="MainLayout" parent="Layouts" startPc="268436102">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+</functions>
+</debugInfo>
