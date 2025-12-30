@@ -8,71 +8,127 @@ import Toybox.System;
 import Toybox.WatchUi;
 [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 5; @symbol_importdef<0> = [Toybox,5,7,13]; @symbol_importdef<1> = [Lang,5,14,18]; ]
 import Toybox.Lang;
-[ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 7; @symbol_classdef = [EnergyView,7,6,16]; @symbol_extends<0> = [WatchUi,7,25,32]; @symbol_extends<1> = [View,7,33,37]; ]
+[ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 6; @symbol_importdef<0> = [Toybox,6,7,13]; @symbol_importdef<1> = [Timer,6,14,19]; ]
+import Toybox.Timer;
+[ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 8; @symbol_classdef = [EnergyView,8,6,16]; @symbol_extends<0> = [WatchUi,8,25,32]; @symbol_extends<1> = [View,8,33,37]; ]
 class EnergyView extends WatchUi.View {
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 7; ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 8; ]
     <init> {
     }
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 7; ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 8; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 9; @position = 8; @symbol_vardef = [solar,9,8,13]; ]
-    var solar = "--";
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 10; @position = 8; @symbol_vardef = [power,10,8,13]; ]
-    var power = "--";
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 11; @position = 8; @symbol_vardef = [error,11,8,13]; ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 10; @position = 6; @symbol_vardef = [solar,10,6,11]; @symbol_type<0> = [Number,10,15,21]; ]
+    var solar as Number = 0;
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 11; @position = 6; @symbol_vardef = [consumption,11,6,17]; @symbol_type<0> = [Number,11,21,27]; ]
+    var consumption as Number = 0;
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 12; @position = 6; @symbol_vardef = [total,12,6,11]; @symbol_type<0> = [Number,12,15,21]; ]
+    var total as Number = 0;
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 13; @position = 6; @symbol_vardef = [error,13,6,11]; ]
     var error = false;
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 13; @symbol_functiondef = [initialize,13,13,23]; ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 15; @position = 6; @symbol_vardef = [refreshTimer,15,6,18]; ]
+    var refreshTimer = null;
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 17; @symbol_functiondef = [initialize,17,11,21]; ]
     function initialize() as Void {
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_13_26_15_4_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 14 8 ]
-        symbol [ View %tmp.2 14 8 12 ];
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_17_24_19_2_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 18 4 ]
+        symbol [ View %tmp.2 18 4 8 ];
         %tmp.2 = getv ? :View;
-        symbol [ initialize %tmp.3 14 13 23 ];
+        symbol [ initialize %tmp.3 18 9 19 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_13_26_15_4_stop:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_17_24_19_2_stop:
     }
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 17; @symbol_functiondef = [onShow,17,13,19]; ]
-    function onShow() {
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_17_22_19_4_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 18 8 ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 21; @symbol_functiondef = [onShow,21,11,17]; ]
+    function onShow() as Void {
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_28_26_2_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 22 4 ]
         %tmp.1 = self;
-        symbol [ fetchData %tmp.2 18 8 17 ];
+        symbol [ fetchData %tmp.2 22 4 13 ];
         %tmp.2 = getv function %tmp.1 :fetchData;
         invoke %tmp.1 %tmp.2();
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_17_22_19_4_stop:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 24 4 ]
+        symbol [ Timer %tmp.5 24 23 28 ];
+        %tmp.5 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.6 24 29 34 ];
+        %tmp.6 = getv function ? %tmp.5 :Timer;
+        %tmp.3 = newc %tmp.6 ();
+        symbol [ refreshTimer ? 24 4 16 ];
+        putv self :refreshTimer %tmp.3;
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 25 4 ]
+        symbol [ refreshTimer %tmp.8 25 4 16 ];
+        %tmp.8 = getv ? :refreshTimer;
+        symbol [ start %tmp.9 25 17 22 ];
+        %tmp.9 = getv function %tmp.8 :start;
+        %tmp.10 = self;
+        symbol [ method %tmp.11 25 23 29 ];
+        %tmp.11 = getv function %tmp.10 :method;
+        %tmp.13 = const :fetchData;
+        symbol [ fetchData %tmp.13 25 31 40 const ];
+        %tmp.14 = invoke %tmp.10 %tmp.11(%tmp.13);
+        %tmp.15 = 5000;
+        %tmp.16 = true;
+        invoke %tmp.8 %tmp.9(%tmp.14, %tmp.15, %tmp.16);
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_28_26_2_stop:
     }
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 21; @symbol_functiondef = [fetchData,21,13,22]; ]
-    function fetchData() {
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_25_41_4_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 22 8 ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 28; @symbol_functiondef = [onHide,28,11,17]; ]
+    function onHide() as Void {
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_28_28_33_2_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 29 4 ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_29_4_32_4_if_stmt:
+        symbol [ refreshTimer %tmp.2 29 8 20 ];
+        %tmp.2 = getv ? :refreshTimer;
+        %tmp.3 = null;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bf %tmp.4 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_29_4_32_4_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_29_4_32_4_if_true:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_29_30_32_4_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 30 6 ]
+        symbol [ refreshTimer %tmp.6 30 6 18 ];
+        %tmp.6 = getv ? :refreshTimer;
+        %tmp.7 = as %tmp.6 { (!Null) };
+        symbol [ stop %tmp.8 30 19 23 ];
+        %tmp.8 = getv function %tmp.7 :stop;
+        invoke %tmp.7 %tmp.8();
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 31 6 ]
+        %tmp.9 = null;
+        symbol [ refreshTimer ? 31 6 18 ];
+        putv self :refreshTimer %tmp.9;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_29_30_32_4_stop:
+        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_29_4_32_4_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_29_4_32_4_if_end:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_28_28_33_2_stop:
+    }
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 35; @symbol_functiondef = [fetchData,35,11,20]; ]
+    function fetchData() as Void {
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_35_31_47_2_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 36 4 ]
         %tmp.1 = false;
-        symbol [ error ? 22 8 13 ];
+        symbol [ error ? 36 4 9 ];
         putv self :error %tmp.1;
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 24 8 ]
-        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_25_41_4_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_25_41_4_stop" ]
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 38 4 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_35_31_47_2_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_35_31_47_2_stop" ]
         %url.1 = local;
-        symbol [ url %url.1 24 12 15 ];
+        symbol [ url %url.1 38 8 11 ];
         %tmp.2 = "https://michielserver.com/Garmin/";
         lputv %url.1 %tmp.2;
-        symbol [ url %url.1 24 12 15 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 26 8 ]
-        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_25_41_4_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_25_41_4_stop" ]
+        symbol [ url %url.1 38 8 11 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 40 4 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_35_31_47_2_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_35_31_47_2_stop" ]
         %options.2 = local;
-        symbol [ options %options.2 26 12 19 ];
+        symbol [ options %options.2 40 8 15 ];
         %tmp.3 = newd 3;
         %tmp.5 = const :method;
-        symbol [ method %tmp.5 27 13 19 const ];
-        symbol [ Communications %tmp.6 27 23 37 ];
+        symbol [ method %tmp.5 41 7 13 const ];
+        symbol [ Communications %tmp.6 41 17 31 ];
         %tmp.6 = getm $.Toybox.Communications;
-        symbol [ HTTP_REQUEST_METHOD_GET %tmp.7 27 38 61 ];
+        symbol [ HTTP_REQUEST_METHOD_GET %tmp.7 41 32 55 ];
         %tmp.7 = getv %tmp.6 :HTTP_REQUEST_METHOD_GET;
         %tmp.8 = dup %tmp.3;
         %tmp.9 = aputv %tmp.8 %tmp.5 %tmp.7;
         %tmp.11 = const :headers;
-        symbol [ headers %tmp.11 28 13 20 const ];
+        symbol [ headers %tmp.11 42 7 14 const ];
         %tmp.12 = newd 1;
         %tmp.13 = "Accept";
         %tmp.14 = "application/json";
@@ -81,389 +137,534 @@ C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_25_41_4_start:
         %tmp.17 = dup %tmp.9;
         %tmp.18 = aputv %tmp.17 %tmp.11 %tmp.16;
         %tmp.20 = const :responseType;
-        symbol [ responseType %tmp.20 31 13 25 const ];
-        symbol [ Communications %tmp.21 31 29 43 ];
+        symbol [ responseType %tmp.20 43 7 19 const ];
+        symbol [ Communications %tmp.21 43 23 37 ];
         %tmp.21 = getm $.Toybox.Communications;
-        symbol [ HTTP_RESPONSE_CONTENT_TYPE_JSON %tmp.22 31 44 75 ];
+        symbol [ HTTP_RESPONSE_CONTENT_TYPE_JSON %tmp.22 43 38 69 ];
         %tmp.22 = getv %tmp.21 :HTTP_RESPONSE_CONTENT_TYPE_JSON;
         %tmp.23 = dup %tmp.18;
         %tmp.24 = aputv %tmp.23 %tmp.20 %tmp.22;
         lputv %options.2 %tmp.24;
-        symbol [ options %options.2 26 12 19 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 35 8 ]
-        symbol [ Communications %tmp.25 35 8 22 ];
+        symbol [ options %options.2 40 8 15 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 46 4 ]
+        symbol [ Communications %tmp.25 46 4 18 ];
         %tmp.25 = getm $.Toybox.Communications;
-        symbol [ makeWebRequest %tmp.26 35 23 37 ];
+        symbol [ makeWebRequest %tmp.26 46 19 33 ];
         %tmp.26 = getv function %tmp.25 :makeWebRequest;
         %tmp.27 = lgetv %url.1;
-        symbol [ url %tmp.27 36 12 15 ];
+        symbol [ url %tmp.27 46 34 37 ];
         %tmp.28 = null;
         %tmp.29 = lgetv %options.2;
-        symbol [ options %tmp.29 38 12 19 ];
+        symbol [ options %tmp.29 46 45 52 ];
         %tmp.30 = self;
-        symbol [ method %tmp.31 39 12 18 ];
+        symbol [ method %tmp.31 46 54 60 ];
         %tmp.31 = getv function %tmp.30 :method;
         %tmp.33 = const :onReceive;
-        symbol [ onReceive %tmp.33 39 20 29 const ];
+        symbol [ onReceive %tmp.33 46 62 71 const ];
         %tmp.34 = invoke %tmp.30 %tmp.31(%tmp.33);
         invoke %tmp.25 %tmp.26(%tmp.27, %tmp.28, %tmp.29, %tmp.34);
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_21_25_41_4_stop:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_35_31_47_2_stop:
     }
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 44; @symbol_functiondef = [onReceive,44,13,22]; @symbol_param<0> = [responseCode,44,23,35]; @symbol_param<0>_type<0> = [Number,44,39,45]; @symbol_param<1> = [data,44,47,51]; @symbol_param<1>_type<0> = [Dictionary,44,55,65]; @symbol_param<1>_type<1> = [String,44,69,75]; ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 49; @symbol_functiondef = [onReceive,49,11,20]; @symbol_param<0> = [responseCode,49,21,33]; @symbol_param<0>_type<0> = [Number,49,37,43]; @symbol_param<1> = [data,50,21,25]; @symbol_param<1>_type<0> = [Dictionary,50,29,39]; @symbol_param<1>_type<1> = [String,50,43,49]; ]
     function onReceive(responseCode as Number, data as Dictionary or String or Null) as Void {
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_44_93_68_4_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 45 8 ]
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_8_49_8_if_stmt:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_12_45_79_begin:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_12_45_43_begin:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_50_67_78_2_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 52 4 ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_4_56_4_if_stmt:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_8_52_75_begin:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_8_52_39_begin:
         %tmp.1 = lgetv %responseCode;
-        symbol [ responseCode %tmp.1 45 12 24 ];
+        symbol [ responseCode %tmp.1 52 8 20 ];
         %tmp.2 = 200;
         %tmp.3 = ne %tmp.1 %tmp.2;
-        bt %tmp.3 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_8_49_8_if_true;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_35_45_43_false:
+        bt %tmp.3 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_4_56_4_if_true;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_31_52_39_false:
         %tmp.4 = lgetv %data;
-        symbol [ data %tmp.4 45 35 39 ];
+        symbol [ data %tmp.4 52 31 35 ];
         %tmp.5 = null;
         %tmp.6 = eq %tmp.4 %tmp.5;
         push %tmp.6;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_35_45_43_end:
-        %tmp.7 = phi [%tmp.3 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_12_45_43_begin] [%tmp.6 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_35_45_43_false] [%tmp.7 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_35_45_43_end];
-        bt %tmp.7 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_8_49_8_if_true;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_51_45_79_false:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_31_52_39_end:
+        %tmp.7 = phi [%tmp.3 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_8_52_39_begin] [%tmp.6 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_31_52_39_false] [%tmp.7 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_31_52_39_end];
+        bt %tmp.7 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_4_56_4_if_true;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_47_52_75_false:
         %tmp.8 = lgetv %data;
-        symbol [ data %tmp.8 45 53 57 ];
+        symbol [ data %tmp.8 52 49 53 ];
         %tmp.9 = as %tmp.8 { (!Null) };
-        symbol [ Dictionary %tmp.11 45 69 79 ];
+        symbol [ Dictionary %tmp.11 52 65 75 ];
         %tmp.11 = getv ? :Dictionary;
         %tmp.12 = isa %tmp.9 %tmp.11;
         %tmp.13 = not %tmp.12;
         push %tmp.13;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_51_45_79_end:
-        %tmp.14 = phi [%tmp.7 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_12_45_79_begin] [%tmp.13 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_51_45_79_false] [%tmp.14 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_51_45_79_end];
-        bf %tmp.14 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_8_49_8_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_8_49_8_if_true:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_82_49_8_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 46 12 ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_47_52_75_end:
+        %tmp.14 = phi [%tmp.7 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_8_52_75_begin] [%tmp.13 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_47_52_75_false] [%tmp.14 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_47_52_75_end];
+        bf %tmp.14 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_4_56_4_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_4_56_4_if_true:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_78_56_4_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 53 6 ]
         %tmp.15 = true;
-        symbol [ error ? 46 12 17 ];
+        symbol [ error ? 53 6 11 ];
         putv self :error %tmp.15;
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 47 12 ]
-        symbol [ WatchUi %tmp.16 47 12 19 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 54 6 ]
+        symbol [ WatchUi %tmp.16 54 6 13 ];
         %tmp.16 = getm $.Toybox.WatchUi;
-        symbol [ requestUpdate %tmp.17 47 20 33 ];
+        symbol [ requestUpdate %tmp.17 54 14 27 ];
         %tmp.17 = getv function %tmp.16 :requestUpdate;
         invoke %tmp.16 %tmp.17();
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 48 12 ]
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 55 6 ]
         ret ?;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_82_49_8_stop:
-        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_8_49_8_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_45_8_49_8_if_end:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 51 8 ]
-        try @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_beginTry @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_endTry @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_catch @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_finally;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_beginTry:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_12_62_8_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 53 12 ]
-        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_12_62_8_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_12_62_8_stop" ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_78_56_4_stop:
+        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_4_56_4_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_52_4_56_4_if_end:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 58 4 ]
+        try @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_beginTry @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_endTry @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_catch @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_finally;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_beginTry:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_8_73_4_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 59 6 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_8_73_4_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_8_73_4_stop" ]
         %dict.1 = local;
-        symbol [ dict %dict.1 53 16 20 ];
+        symbol [ dict %dict.1 59 10 14 ];
         %tmp.18 = lgetv %data;
-        symbol [ data %tmp.18 53 23 27 ];
+        symbol [ data %tmp.18 59 17 21 ];
         %tmp.19 = as %tmp.18 Dictionary;
-        symbol [ Dictionary %tmp.19 53 31 41 ];
+        symbol [ Dictionary %tmp.19 59 25 35 ];
         lputv %dict.1 %tmp.19;
-        symbol [ dict %dict.1 53 16 20 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 55 12 ]
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_55_12_57_12_if_stmt:
+        symbol [ dict %dict.1 59 10 14 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 62 6 ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_62_6_64_6_if_stmt:
         %tmp.20 = lgetv %dict.1;
-        symbol [ dict %tmp.20 55 16 20 ];
-        symbol [ hasKey %tmp.21 55 21 27 ];
+        symbol [ dict %tmp.20 62 10 14 ];
+        symbol [ hasKey %tmp.21 62 15 21 ];
         %tmp.21 = getv function %tmp.20 :hasKey;
         %tmp.22 = "solar";
         %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
-        bf %tmp.23 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_55_12_57_12_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_55_12_57_12_if_true:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_55_38_57_12_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 56 16 ]
+        bf %tmp.23 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_62_6_64_6_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_62_6_64_6_if_true:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_62_32_64_6_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 63 8 ]
         %tmp.24 = lgetv %dict.1;
-        symbol [ dict %tmp.24 56 24 28 ];
+        symbol [ dict %tmp.24 63 16 20 ];
         %tmp.25 = "solar";
         %tmp.26 = agetv %tmp.24 %tmp.25;
-        symbol [ toString %tmp.27 56 38 46 ];
-        %tmp.27 = getv function %tmp.26 :toString;
+        symbol [ toNumber %tmp.27 63 30 38 ];
+        %tmp.27 = getv function %tmp.26 :toNumber;
         %tmp.28 = invoke %tmp.26 %tmp.27();
-        symbol [ solar ? 56 16 21 ];
+        symbol [ solar ? 63 8 13 ];
         putv self :solar %tmp.28;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_55_38_57_12_stop:
-        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_55_12_57_12_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_55_12_57_12_if_end:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 59 12 ]
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_59_12_61_12_if_stmt:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_62_32_64_6_stop:
+        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_62_6_64_6_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_62_6_64_6_if_end:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 66 6 ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_66_6_68_6_if_stmt:
         %tmp.29 = lgetv %dict.1;
-        symbol [ dict %tmp.29 59 16 20 ];
-        symbol [ hasKey %tmp.30 59 21 27 ];
+        symbol [ dict %tmp.29 66 10 14 ];
+        symbol [ hasKey %tmp.30 66 15 21 ];
         %tmp.30 = getv function %tmp.29 :hasKey;
-        %tmp.31 = "power";
+        %tmp.31 = "consumption";
         %tmp.32 = invoke %tmp.29 %tmp.30(%tmp.31);
-        bf %tmp.32 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_59_12_61_12_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_59_12_61_12_if_true:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_59_38_61_12_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 60 16 ]
-        %tmp.33 = lgetv %dict.1;
-        symbol [ dict %tmp.33 60 24 28 ];
-        %tmp.34 = "power";
-        %tmp.35 = agetv %tmp.33 %tmp.34;
-        symbol [ toString %tmp.36 60 38 46 ];
-        %tmp.36 = getv function %tmp.35 :toString;
-        %tmp.37 = invoke %tmp.35 %tmp.36();
-        symbol [ power ? 60 16 21 ];
-        putv self :power %tmp.37;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_59_38_61_12_stop:
-        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_59_12_61_12_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_59_12_61_12_if_end:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_12_62_8_stop:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_endTry:
-        jsr @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_finally;
-        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_catch:
-        %tmp.38 = exception;
-        push %tmp.38;
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 63 8 ]
-        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_catch" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_63_8_65_8_end" ]
-        %ex.2 = local;
-        symbol [ ex %ex.2 63 15 17 ];
-        %tmp.39 = dup %tmp.38;
-        lputv %ex.2 %tmp.39;
-        symbol [ ex %ex.2 63 15 17 ];
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_63_19_65_8_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 64 12 ]
-        %tmp.40 = true;
-        symbol [ error ? 64 12 17 ];
-        putv self :error %tmp.40;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_63_19_65_8_stop:
-        jsr @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_finally;
-        pop;
-        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_63_8_65_8_end:
-        try @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_catch @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_63_8_65_8_end @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_63_8_65_8_end @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_finally;
-        jsr @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_finally;
-        throw %tmp.38;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_finally:
-        jsrret;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_51_8_65_8_end:
+        bf %tmp.32 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_66_6_68_6_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_66_6_68_6_if_true:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_66_38_68_6_start:
 [ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 67 8 ]
-        symbol [ WatchUi %tmp.41 67 8 15 ];
-        %tmp.41 = getm $.Toybox.WatchUi;
-        symbol [ requestUpdate %tmp.42 67 16 29 ];
-        %tmp.42 = getv function %tmp.41 :requestUpdate;
-        invoke %tmp.41 %tmp.42();
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_44_93_68_4_stop:
+        %tmp.33 = lgetv %dict.1;
+        symbol [ dict %tmp.33 67 22 26 ];
+        %tmp.34 = "consumption";
+        %tmp.35 = agetv %tmp.33 %tmp.34;
+        symbol [ toNumber %tmp.36 67 42 50 ];
+        %tmp.36 = getv function %tmp.35 :toNumber;
+        %tmp.37 = invoke %tmp.35 %tmp.36();
+        symbol [ consumption ? 67 8 19 ];
+        putv self :consumption %tmp.37;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_66_38_68_6_stop:
+        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_66_6_68_6_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_66_6_68_6_if_end:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 71 6 ]
+        symbol [ consumption %tmp.39 71 14 25 ];
+        %tmp.39 = getv ? :consumption;
+        symbol [ solar %tmp.41 71 28 33 ];
+        %tmp.41 = getv ? :solar;
+        %tmp.42 = sub %tmp.39 %tmp.41;
+        symbol [ total ? 71 6 11 ];
+        putv self :total %tmp.42;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_8_73_4_stop:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_endTry:
+        jsr @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_finally;
+        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_catch:
+        %tmp.43 = exception;
+        push %tmp.43;
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 73 6 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_catch" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_73_6_75_4_end" ]
+        %ex.2 = local;
+        symbol [ ex %ex.2 73 13 15 ];
+        %tmp.44 = dup %tmp.43;
+        lputv %ex.2 %tmp.44;
+        symbol [ ex %ex.2 73 13 15 ];
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_73_17_75_4_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 74 6 ]
+        %tmp.45 = true;
+        symbol [ error ? 74 6 11 ];
+        putv self :error %tmp.45;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_73_17_75_4_stop:
+        jsr @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_finally;
+        pop;
+        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_73_6_75_4_end:
+        try @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_catch @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_73_6_75_4_end @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_73_6_75_4_end @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_finally;
+        jsr @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_finally;
+        throw %tmp.43;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_finally:
+        jsrret;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_58_4_75_4_end:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 77 4 ]
+        symbol [ WatchUi %tmp.46 77 4 11 ];
+        %tmp.46 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.47 77 12 25 ];
+        %tmp.47 = getv function %tmp.46 :requestUpdate;
+        invoke %tmp.46 %tmp.47();
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_50_67_78_2_stop:
     }
-    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 70; @symbol_functiondef = [onUpdate,70,13,21]; @symbol_param<0> = [dc,70,22,24]; ]
+    [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 80; @symbol_functiondef = [onUpdate,80,11,19]; @symbol_param<0> = [dc,80,20,22]; ]
     function onUpdate(dc) {
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_70_26_97_4_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 71 8 ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 81 4 ]
         %tmp.1 = lgetv %dc;
-        symbol [ dc %tmp.1 71 8 10 ];
-        symbol [ setColor %tmp.2 71 11 19 ];
+        symbol [ dc %tmp.1 81 4 6 ];
+        symbol [ setColor %tmp.2 81 7 15 ];
         %tmp.2 = getv function %tmp.1 :setColor;
-        symbol [ Graphics %tmp.3 71 20 28 ];
+        symbol [ Graphics %tmp.3 81 16 24 ];
         %tmp.3 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.4 71 29 40 ];
+        symbol [ COLOR_BLACK %tmp.4 81 25 36 ];
         %tmp.4 = getv %tmp.3 :COLOR_BLACK;
-        symbol [ Graphics %tmp.5 71 42 50 ];
+        symbol [ Graphics %tmp.5 81 38 46 ];
         %tmp.5 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.6 71 51 62 ];
+        symbol [ COLOR_BLACK %tmp.6 81 47 58 ];
         %tmp.6 = getv %tmp.5 :COLOR_BLACK;
         invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 72 8 ]
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 82 4 ]
         %tmp.7 = lgetv %dc;
-        symbol [ dc %tmp.7 72 8 10 ];
-        symbol [ clear %tmp.8 72 11 16 ];
+        symbol [ dc %tmp.7 82 4 6 ];
+        symbol [ clear %tmp.8 82 7 12 ];
         %tmp.8 = getv function %tmp.7 :clear;
         invoke %tmp.7 %tmp.8();
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 73 8 ]
-        %tmp.9 = lgetv %dc;
-        symbol [ dc %tmp.9 73 8 10 ];
-        symbol [ setColor %tmp.10 73 11 19 ];
-        %tmp.10 = getv function %tmp.9 :setColor;
-        symbol [ Graphics %tmp.11 73 20 28 ];
-        %tmp.11 = getm $.Toybox.Graphics;
-        symbol [ COLOR_WHITE %tmp.12 73 29 40 ];
-        %tmp.12 = getv %tmp.11 :COLOR_WHITE;
-        symbol [ Graphics %tmp.13 73 42 50 ];
-        %tmp.13 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.14 73 51 68 ];
-        %tmp.14 = getv %tmp.13 :COLOR_TRANSPARENT;
-        invoke %tmp.9 %tmp.10(%tmp.12, %tmp.14);
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 75 8 ]
-        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_70_26_97_4_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_70_26_97_4_stop" ]
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 84 4 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_stop" ]
         %w.1 = local;
-        symbol [ w %w.1 75 12 13 ];
-        %tmp.15 = lgetv %dc;
-        symbol [ dc %tmp.15 75 16 18 ];
-        symbol [ getWidth %tmp.16 75 19 27 ];
-        %tmp.16 = getv function %tmp.15 :getWidth;
-        %tmp.17 = invoke %tmp.15 %tmp.16();
-        lputv %w.1 %tmp.17;
-        symbol [ w %w.1 75 12 13 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 76 8 ]
-        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_70_26_97_4_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_70_26_97_4_stop" ]
-        %y.2 = local;
-        symbol [ y %y.2 76 12 13 ];
-        %tmp.18 = 20;
-        lputv %y.2 %tmp.18;
-        symbol [ y %y.2 76 12 13 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 78 8 ]
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_78_8_87_8_if_stmt:
-        symbol [ error %tmp.20 78 12 17 ];
-        %tmp.20 = getv ? :error;
-        bf %tmp.20 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_78_8_87_8_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_78_8_87_8_if_true:
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_78_19_87_8_start:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 79 12 ]
-        %tmp.21 = lgetv %dc;
-        symbol [ dc %tmp.21 79 12 14 ];
-        symbol [ drawText %tmp.22 79 15 23 ];
-        %tmp.22 = getv function %tmp.21 :drawText;
-        %tmp.23 = lgetv %w.1;
-        symbol [ w %tmp.23 80 16 17 ];
-        %tmp.24 = 2;
-        %tmp.25 = div %tmp.23 %tmp.24;
-        %tmp.26 = lgetv %dc;
-        symbol [ dc %tmp.26 81 16 18 ];
-        symbol [ getHeight %tmp.27 81 19 28 ];
-        %tmp.27 = getv function %tmp.26 :getHeight;
-        %tmp.28 = invoke %tmp.26 %tmp.27();
-        %tmp.29 = 2;
-        %tmp.30 = div %tmp.28 %tmp.29;
-        symbol [ Graphics %tmp.31 82 16 24 ];
-        %tmp.31 = getm $.Toybox.Graphics;
-        symbol [ FONT_SMALL %tmp.32 82 25 35 ];
-        %tmp.32 = getv %tmp.31 :FONT_SMALL;
-        %tmp.33 = "No data";
-        symbol [ Graphics %tmp.34 84 16 24 ];
+        symbol [ w %w.1 84 8 9 ];
+        %tmp.9 = lgetv %dc;
+        symbol [ dc %tmp.9 84 12 14 ];
+        symbol [ getWidth %tmp.10 84 15 23 ];
+        %tmp.10 = getv function %tmp.9 :getWidth;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %w.1 %tmp.11;
+        symbol [ w %w.1 84 8 9 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 87 4 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_stop" ]
+        %startY.2 = local;
+        symbol [ startY %startY.2 87 8 14 ];
+        %tmp.12 = 20;
+        lputv %startY.2 %tmp.12;
+        symbol [ startY %startY.2 87 8 14 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 88 4 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_stop" ]
+        %labelGap.3 = local;
+        symbol [ labelGap %labelGap.3 88 8 16 ];
+        %tmp.13 = 30;
+        lputv %labelGap.3 %tmp.13;
+        symbol [ labelGap %labelGap.3 88 8 16 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 89 4 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_stop" ]
+        %sectionGap.4 = local;
+        symbol [ sectionGap %sectionGap.4 89 8 18 ];
+        %tmp.14 = 65;
+        lputv %sectionGap.4 %tmp.14;
+        symbol [ sectionGap %sectionGap.4 89 8 18 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 91 4 ]
+        [ "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_start" "C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_stop" ]
+        %y.5 = local;
+        symbol [ y %y.5 91 8 9 ];
+        %tmp.15 = lgetv %startY.2;
+        symbol [ startY %tmp.15 91 12 18 ];
+        lputv %y.5 %tmp.15;
+        symbol [ y %y.5 91 8 9 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 93 4 ]
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_93_4_103_4_if_stmt:
+        symbol [ error %tmp.17 93 8 13 ];
+        %tmp.17 = getv ? :error;
+        bf %tmp.17 @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_93_4_103_4_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_93_4_103_4_if_true:
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_93_15_103_4_start:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 94 6 ]
+        %tmp.18 = lgetv %dc;
+        symbol [ dc %tmp.18 94 6 8 ];
+        symbol [ setColor %tmp.19 94 9 17 ];
+        %tmp.19 = getv function %tmp.18 :setColor;
+        symbol [ Graphics %tmp.20 94 18 26 ];
+        %tmp.20 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.21 94 27 38 ];
+        %tmp.21 = getv %tmp.20 :COLOR_WHITE;
+        symbol [ Graphics %tmp.22 94 40 48 ];
+        %tmp.22 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.23 94 49 66 ];
+        %tmp.23 = getv %tmp.22 :COLOR_TRANSPARENT;
+        invoke %tmp.18 %tmp.19(%tmp.21, %tmp.23);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 95 6 ]
+        %tmp.24 = lgetv %dc;
+        symbol [ dc %tmp.24 95 6 8 ];
+        symbol [ drawText %tmp.25 95 9 17 ];
+        %tmp.25 = getv function %tmp.24 :drawText;
+        %tmp.26 = lgetv %w.1;
+        symbol [ w %tmp.26 96 8 9 ];
+        %tmp.27 = 2;
+        %tmp.28 = div %tmp.26 %tmp.27;
+        %tmp.29 = lgetv %dc;
+        symbol [ dc %tmp.29 97 8 10 ];
+        symbol [ getHeight %tmp.30 97 11 20 ];
+        %tmp.30 = getv function %tmp.29 :getHeight;
+        %tmp.31 = invoke %tmp.29 %tmp.30();
+        %tmp.32 = 2;
+        %tmp.33 = div %tmp.31 %tmp.32;
+        symbol [ Graphics %tmp.34 98 8 16 ];
         %tmp.34 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.35 84 25 44 ];
-        %tmp.35 = getv %tmp.34 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.21 %tmp.22(%tmp.25, %tmp.30, %tmp.32, %tmp.33, %tmp.35);
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 86 12 ]
+        symbol [ FONT_SMALL %tmp.35 98 17 27 ];
+        %tmp.35 = getv %tmp.34 :FONT_SMALL;
+        %tmp.36 = "No data";
+        symbol [ Graphics %tmp.37 100 8 16 ];
+        %tmp.37 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.38 100 17 36 ];
+        %tmp.38 = getv %tmp.37 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.24 %tmp.25(%tmp.28, %tmp.33, %tmp.35, %tmp.36, %tmp.38);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 102 6 ]
         ret ?;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_78_19_87_8_stop:
-        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_78_8_87_8_if_end;
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_78_8_87_8_if_end:
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 89 8 ]
-        %tmp.36 = lgetv %dc;
-        symbol [ dc %tmp.36 89 8 10 ];
-        symbol [ drawText %tmp.37 89 11 19 ];
-        %tmp.37 = getv function %tmp.36 :drawText;
-        %tmp.38 = lgetv %w.1;
-        symbol [ w %tmp.38 89 20 21 ];
-        %tmp.39 = 2;
-        %tmp.40 = div %tmp.38 %tmp.39;
-        %tmp.41 = lgetv %y.2;
-        symbol [ y %tmp.41 89 27 28 ];
-        symbol [ Graphics %tmp.42 89 30 38 ];
-        %tmp.42 = getm $.Toybox.Graphics;
-        symbol [ FONT_XTINY %tmp.43 89 39 49 ];
-        %tmp.43 = getv %tmp.42 :FONT_XTINY;
-        %tmp.44 = "SOLAR";
-        symbol [ Graphics %tmp.45 89 60 68 ];
-        %tmp.45 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.46 89 69 88 ];
-        %tmp.46 = getv %tmp.45 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.36 %tmp.37(%tmp.40, %tmp.41, %tmp.43, %tmp.44, %tmp.46);
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 90 8 ]
-        %tmp.47 = lgetv %y.2;
-        symbol [ y %tmp.47 90 8 9 ];
-        %tmp.48 = 25;
-        %tmp.49 = add %tmp.47 %tmp.48;
-        lputv %y.2 %tmp.49;
-        symbol [ y %y.2 90 8 9 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 91 8 ]
-        %tmp.50 = lgetv %dc;
-        symbol [ dc %tmp.50 91 8 10 ];
-        symbol [ drawText %tmp.51 91 11 19 ];
-        %tmp.51 = getv function %tmp.50 :drawText;
-        %tmp.52 = lgetv %w.1;
-        symbol [ w %tmp.52 91 20 21 ];
-        %tmp.53 = 2;
-        %tmp.54 = div %tmp.52 %tmp.53;
-        %tmp.55 = lgetv %y.2;
-        symbol [ y %tmp.55 91 27 28 ];
-        symbol [ Graphics %tmp.56 91 30 38 ];
-        %tmp.56 = getm $.Toybox.Graphics;
-        symbol [ FONT_LARGE %tmp.57 91 39 49 ];
-        %tmp.57 = getv %tmp.56 :FONT_LARGE;
-        symbol [ solar %tmp.59 91 51 56 ];
-        %tmp.59 = getv ? :solar;
-        %tmp.60 = " W";
-        %tmp.61 = add %tmp.59 %tmp.60;
-        symbol [ Graphics %tmp.62 91 65 73 ];
-        %tmp.62 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.63 91 74 93 ];
-        %tmp.63 = getv %tmp.62 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.50 %tmp.51(%tmp.54, %tmp.55, %tmp.57, %tmp.61, %tmp.63);
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 93 8 ]
-        %tmp.64 = lgetv %y.2;
-        symbol [ y %tmp.64 93 8 9 ];
-        %tmp.65 = 50;
-        %tmp.66 = add %tmp.64 %tmp.65;
-        lputv %y.2 %tmp.66;
-        symbol [ y %y.2 93 8 9 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 94 8 ]
-        %tmp.67 = lgetv %dc;
-        symbol [ dc %tmp.67 94 8 10 ];
-        symbol [ drawText %tmp.68 94 11 19 ];
-        %tmp.68 = getv function %tmp.67 :drawText;
-        %tmp.69 = lgetv %w.1;
-        symbol [ w %tmp.69 94 20 21 ];
-        %tmp.70 = 2;
-        %tmp.71 = div %tmp.69 %tmp.70;
-        %tmp.72 = lgetv %y.2;
-        symbol [ y %tmp.72 94 27 28 ];
-        symbol [ Graphics %tmp.73 94 30 38 ];
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_93_15_103_4_stop:
+        goto @C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_93_4_103_4_if_end;
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_93_4_103_4_if_end:
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 106 4 ]
+        %tmp.39 = lgetv %dc;
+        symbol [ dc %tmp.39 106 4 6 ];
+        symbol [ setColor %tmp.40 106 7 15 ];
+        %tmp.40 = getv function %tmp.39 :setColor;
+        symbol [ Graphics %tmp.41 106 16 24 ];
+        %tmp.41 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.42 106 25 36 ];
+        %tmp.42 = getv %tmp.41 :COLOR_GREEN;
+        symbol [ Graphics %tmp.43 106 38 46 ];
+        %tmp.43 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.44 106 47 64 ];
+        %tmp.44 = getv %tmp.43 :COLOR_TRANSPARENT;
+        invoke %tmp.39 %tmp.40(%tmp.42, %tmp.44);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 107 4 ]
+        %tmp.45 = lgetv %dc;
+        symbol [ dc %tmp.45 107 4 6 ];
+        symbol [ drawText %tmp.46 107 7 15 ];
+        %tmp.46 = getv function %tmp.45 :drawText;
+        %tmp.47 = lgetv %w.1;
+        symbol [ w %tmp.47 107 16 17 ];
+        %tmp.48 = 2;
+        %tmp.49 = div %tmp.47 %tmp.48;
+        %tmp.50 = lgetv %y.5;
+        symbol [ y %tmp.50 107 23 24 ];
+        symbol [ Graphics %tmp.51 107 26 34 ];
+        %tmp.51 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.52 107 35 45 ];
+        %tmp.52 = getv %tmp.51 :FONT_XTINY;
+        %tmp.53 = "SOLAR";
+        symbol [ Graphics %tmp.54 107 56 64 ];
+        %tmp.54 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.55 107 65 84 ];
+        %tmp.55 = getv %tmp.54 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.45 %tmp.46(%tmp.49, %tmp.50, %tmp.52, %tmp.53, %tmp.55);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 108 4 ]
+        %tmp.56 = lgetv %y.5;
+        symbol [ y %tmp.56 108 4 5 ];
+        %tmp.57 = lgetv %labelGap.3;
+        symbol [ labelGap %tmp.57 108 9 17 ];
+        %tmp.58 = add %tmp.56 %tmp.57;
+        lputv %y.5 %tmp.58;
+        symbol [ y %y.5 108 4 5 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 109 4 ]
+        %tmp.59 = lgetv %dc;
+        symbol [ dc %tmp.59 109 4 6 ];
+        symbol [ drawText %tmp.60 109 7 15 ];
+        %tmp.60 = getv function %tmp.59 :drawText;
+        %tmp.61 = lgetv %w.1;
+        symbol [ w %tmp.61 109 16 17 ];
+        %tmp.62 = 2;
+        %tmp.63 = div %tmp.61 %tmp.62;
+        %tmp.64 = lgetv %y.5;
+        symbol [ y %tmp.64 109 23 24 ];
+        symbol [ Graphics %tmp.65 109 26 34 ];
+        %tmp.65 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.66 109 35 45 ];
+        %tmp.66 = getv %tmp.65 :FONT_LARGE;
+        symbol [ solar %tmp.68 109 47 52 ];
+        %tmp.68 = getv ? :solar;
+        symbol [ toString %tmp.69 109 53 61 ];
+        %tmp.69 = getv function %tmp.68 :toString;
+        %tmp.70 = invoke %tmp.68 %tmp.69();
+        %tmp.71 = " W";
+        %tmp.72 = add %tmp.70 %tmp.71;
+        symbol [ Graphics %tmp.73 109 72 80 ];
         %tmp.73 = getm $.Toybox.Graphics;
-        symbol [ FONT_XTINY %tmp.74 94 39 49 ];
-        %tmp.74 = getv %tmp.73 :FONT_XTINY;
-        %tmp.75 = "POWER";
-        symbol [ Graphics %tmp.76 94 60 68 ];
-        %tmp.76 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.77 94 69 88 ];
-        %tmp.77 = getv %tmp.76 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.67 %tmp.68(%tmp.71, %tmp.72, %tmp.74, %tmp.75, %tmp.77);
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 95 8 ]
-        %tmp.78 = lgetv %y.2;
-        symbol [ y %tmp.78 95 8 9 ];
-        %tmp.79 = 25;
-        %tmp.80 = add %tmp.78 %tmp.79;
-        lputv %y.2 %tmp.80;
-        symbol [ y %y.2 95 8 9 ];
-[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 96 8 ]
-        %tmp.81 = lgetv %dc;
-        symbol [ dc %tmp.81 96 8 10 ];
-        symbol [ drawText %tmp.82 96 11 19 ];
-        %tmp.82 = getv function %tmp.81 :drawText;
-        %tmp.83 = lgetv %w.1;
-        symbol [ w %tmp.83 96 20 21 ];
-        %tmp.84 = 2;
-        %tmp.85 = div %tmp.83 %tmp.84;
-        %tmp.86 = lgetv %y.2;
-        symbol [ y %tmp.86 96 27 28 ];
-        symbol [ Graphics %tmp.87 96 30 38 ];
-        %tmp.87 = getm $.Toybox.Graphics;
-        symbol [ FONT_LARGE %tmp.88 96 39 49 ];
-        %tmp.88 = getv %tmp.87 :FONT_LARGE;
-        symbol [ power %tmp.90 96 51 56 ];
-        %tmp.90 = getv ? :power;
-        %tmp.91 = " W";
-        %tmp.92 = add %tmp.90 %tmp.91;
-        symbol [ Graphics %tmp.93 96 65 73 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.74 109 81 100 ];
+        %tmp.74 = getv %tmp.73 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.59 %tmp.60(%tmp.63, %tmp.64, %tmp.66, %tmp.72, %tmp.74);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 112 4 ]
+        %tmp.75 = lgetv %y.5;
+        symbol [ y %tmp.75 112 4 5 ];
+        %tmp.76 = lgetv %sectionGap.4;
+        symbol [ sectionGap %tmp.76 112 9 19 ];
+        %tmp.77 = add %tmp.75 %tmp.76;
+        lputv %y.5 %tmp.77;
+        symbol [ y %y.5 112 4 5 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 113 4 ]
+        %tmp.78 = lgetv %dc;
+        symbol [ dc %tmp.78 113 4 6 ];
+        symbol [ setColor %tmp.79 113 7 15 ];
+        %tmp.79 = getv function %tmp.78 :setColor;
+        symbol [ Graphics %tmp.80 113 16 24 ];
+        %tmp.80 = getm $.Toybox.Graphics;
+        symbol [ COLOR_RED %tmp.81 113 25 34 ];
+        %tmp.81 = getv %tmp.80 :COLOR_RED;
+        symbol [ Graphics %tmp.82 113 36 44 ];
+        %tmp.82 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.83 113 45 62 ];
+        %tmp.83 = getv %tmp.82 :COLOR_TRANSPARENT;
+        invoke %tmp.78 %tmp.79(%tmp.81, %tmp.83);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 114 4 ]
+        %tmp.84 = lgetv %dc;
+        symbol [ dc %tmp.84 114 4 6 ];
+        symbol [ drawText %tmp.85 114 7 15 ];
+        %tmp.85 = getv function %tmp.84 :drawText;
+        %tmp.86 = lgetv %w.1;
+        symbol [ w %tmp.86 114 16 17 ];
+        %tmp.87 = 2;
+        %tmp.88 = div %tmp.86 %tmp.87;
+        %tmp.89 = lgetv %y.5;
+        symbol [ y %tmp.89 114 23 24 ];
+        symbol [ Graphics %tmp.90 114 26 34 ];
+        %tmp.90 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.91 114 35 45 ];
+        %tmp.91 = getv %tmp.90 :FONT_XTINY;
+        %tmp.92 = "CONSUMPTION";
+        symbol [ Graphics %tmp.93 114 62 70 ];
         %tmp.93 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.94 96 74 93 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.94 114 71 90 ];
         %tmp.94 = getv %tmp.93 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.81 %tmp.82(%tmp.85, %tmp.86, %tmp.88, %tmp.92, %tmp.94);
-C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_70_26_97_4_stop:
+        invoke %tmp.84 %tmp.85(%tmp.88, %tmp.89, %tmp.91, %tmp.92, %tmp.94);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 115 4 ]
+        %tmp.95 = lgetv %y.5;
+        symbol [ y %tmp.95 115 4 5 ];
+        %tmp.96 = lgetv %labelGap.3;
+        symbol [ labelGap %tmp.96 115 9 17 ];
+        %tmp.97 = add %tmp.95 %tmp.96;
+        lputv %y.5 %tmp.97;
+        symbol [ y %y.5 115 4 5 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 116 4 ]
+        %tmp.98 = lgetv %dc;
+        symbol [ dc %tmp.98 116 4 6 ];
+        symbol [ drawText %tmp.99 116 7 15 ];
+        %tmp.99 = getv function %tmp.98 :drawText;
+        %tmp.100 = lgetv %w.1;
+        symbol [ w %tmp.100 116 16 17 ];
+        %tmp.101 = 2;
+        %tmp.102 = div %tmp.100 %tmp.101;
+        %tmp.103 = lgetv %y.5;
+        symbol [ y %tmp.103 116 23 24 ];
+        symbol [ Graphics %tmp.104 116 26 34 ];
+        %tmp.104 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.105 116 35 45 ];
+        %tmp.105 = getv %tmp.104 :FONT_LARGE;
+        symbol [ consumption %tmp.107 116 47 58 ];
+        %tmp.107 = getv ? :consumption;
+        symbol [ toString %tmp.108 116 59 67 ];
+        %tmp.108 = getv function %tmp.107 :toString;
+        %tmp.109 = invoke %tmp.107 %tmp.108();
+        %tmp.110 = " W";
+        %tmp.111 = add %tmp.109 %tmp.110;
+        symbol [ Graphics %tmp.112 116 78 86 ];
+        %tmp.112 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.113 116 87 106 ];
+        %tmp.113 = getv %tmp.112 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.98 %tmp.99(%tmp.102, %tmp.103, %tmp.105, %tmp.111, %tmp.113);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 119 4 ]
+        %tmp.114 = lgetv %y.5;
+        symbol [ y %tmp.114 119 4 5 ];
+        %tmp.115 = lgetv %sectionGap.4;
+        symbol [ sectionGap %tmp.115 119 9 19 ];
+        %tmp.116 = add %tmp.114 %tmp.115;
+        lputv %y.5 %tmp.116;
+        symbol [ y %y.5 119 4 5 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 120 4 ]
+        %tmp.117 = lgetv %dc;
+        symbol [ dc %tmp.117 120 4 6 ];
+        symbol [ setColor %tmp.118 120 7 15 ];
+        %tmp.118 = getv function %tmp.117 :setColor;
+        symbol [ Graphics %tmp.119 120 16 24 ];
+        %tmp.119 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.120 120 25 36 ];
+        %tmp.120 = getv %tmp.119 :COLOR_WHITE;
+        symbol [ Graphics %tmp.121 120 38 46 ];
+        %tmp.121 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.122 120 47 64 ];
+        %tmp.122 = getv %tmp.121 :COLOR_TRANSPARENT;
+        invoke %tmp.117 %tmp.118(%tmp.120, %tmp.122);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 121 4 ]
+        %tmp.123 = lgetv %dc;
+        symbol [ dc %tmp.123 121 4 6 ];
+        symbol [ drawText %tmp.124 121 7 15 ];
+        %tmp.124 = getv function %tmp.123 :drawText;
+        %tmp.125 = lgetv %w.1;
+        symbol [ w %tmp.125 121 16 17 ];
+        %tmp.126 = 2;
+        %tmp.127 = div %tmp.125 %tmp.126;
+        %tmp.128 = lgetv %y.5;
+        symbol [ y %tmp.128 121 23 24 ];
+        symbol [ Graphics %tmp.129 121 26 34 ];
+        %tmp.129 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.130 121 35 45 ];
+        %tmp.130 = getv %tmp.129 :FONT_XTINY;
+        %tmp.131 = "TOTAL";
+        symbol [ Graphics %tmp.132 121 56 64 ];
+        %tmp.132 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.133 121 65 84 ];
+        %tmp.133 = getv %tmp.132 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.123 %tmp.124(%tmp.127, %tmp.128, %tmp.130, %tmp.131, %tmp.133);
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 122 4 ]
+        %tmp.134 = lgetv %y.5;
+        symbol [ y %tmp.134 122 4 5 ];
+        %tmp.135 = lgetv %labelGap.3;
+        symbol [ labelGap %tmp.135 122 9 17 ];
+        %tmp.136 = add %tmp.134 %tmp.135;
+        lputv %y.5 %tmp.136;
+        symbol [ y %y.5 122 4 5 ];
+[ "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc" 123 4 ]
+        %tmp.137 = lgetv %dc;
+        symbol [ dc %tmp.137 123 4 6 ];
+        symbol [ drawText %tmp.138 123 7 15 ];
+        %tmp.138 = getv function %tmp.137 :drawText;
+        %tmp.139 = lgetv %w.1;
+        symbol [ w %tmp.139 123 16 17 ];
+        %tmp.140 = 2;
+        %tmp.141 = div %tmp.139 %tmp.140;
+        %tmp.142 = lgetv %y.5;
+        symbol [ y %tmp.142 123 23 24 ];
+        symbol [ Graphics %tmp.143 123 26 34 ];
+        %tmp.143 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.144 123 35 45 ];
+        %tmp.144 = getv %tmp.143 :FONT_LARGE;
+        symbol [ total %tmp.146 123 47 52 ];
+        %tmp.146 = getv ? :total;
+        symbol [ toString %tmp.147 123 53 61 ];
+        %tmp.147 = getv function %tmp.146 :toString;
+        %tmp.148 = invoke %tmp.146 %tmp.147();
+        %tmp.149 = " W";
+        %tmp.150 = add %tmp.148 %tmp.149;
+        symbol [ Graphics %tmp.151 123 72 80 ];
+        %tmp.151 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.152 123 81 100 ];
+        %tmp.152 = getv %tmp.151 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.137 %tmp.138(%tmp.141, %tmp.142, %tmp.144, %tmp.150, %tmp.152);
+C__Users_brits_Desktop_Energy_Energy_source_EnergyView_mc_80_24_124_2_stop:
     }
 }
 [ @file = "C:\Users\brits\Desktop\Energy\Energy\source\EnergyView.mc"; @line = 1; ]

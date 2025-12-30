@@ -2,97 +2,124 @@ import Toybox.Communications;
 import Toybox.Graphics;
 import Toybox.System;
 import Toybox.WatchUi;
-import Toybox.Lang; // Nodig voor type definities
+import Toybox.Lang;
+import Toybox.Timer;
 
 class EnergyView extends WatchUi.View {
 
-    var solar = "--";
-    var power = "--";
-    var error = false;
+  var solar as Number = 0;
+  var consumption as Number = 0;
+  var total as Number = 0;
+  var error = false;
 
-    function initialize() {
-        View.initialize();
+  var refreshTimer = null;
+
+  function initialize() {
+    View.initialize();
+  }
+
+  function onShow() as Void {
+    fetchData();
+
+    refreshTimer = new Timer.Timer();
+    refreshTimer.start(method(:fetchData), 5000, true);
+  }
+
+  function onHide() as Void {
+    if (refreshTimer != null) {
+      refreshTimer.stop();
+      refreshTimer = null;
+    }
+  }
+
+  function fetchData() as Void {
+    error = false;
+
+    var url = "https://michielserver.com/Garmin/";
+
+    var options = {
+      :method => Communications.HTTP_REQUEST_METHOD_GET,
+      :headers => { "Accept" => "application/json" },
+      :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+    };
+
+    Communications.makeWebRequest(url, null, options, method(:onReceive));
+  }
+
+  function onReceive(responseCode as Number,
+                     data as Dictionary or String or Null) as Void {
+
+    if (responseCode != 200 || data == null || !(data instanceof Dictionary)) {
+      error = true;
+      WatchUi.requestUpdate();
+      return;
     }
 
-    function onShow() {
-        fetchData();
+    try {
+      var dict = data as Dictionary;
+
+      // Parse values (expecting JSON keys: solar, consumption)
+      if (dict.hasKey("solar")) {
+        solar = dict["solar"].toNumber();
+      }
+
+      if (dict.hasKey("consumption")) {
+        consumption = dict["consumption"].toNumber();
+      }
+
+      // Calculate total on-watch: consumption - solar
+      total = consumption - solar;
+
+    } catch (ex) {
+      error = true;
     }
 
-    function fetchData() {
-        error = false;
+    WatchUi.requestUpdate();
+  }
 
-        var url = "https://michielserver.com/Garmin/";
+  function onUpdate(dc) {
+    dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+    dc.clear();
 
-        var options = {
-            :method => Communications.HTTP_REQUEST_METHOD_GET,
-            :headers => {
-                "Accept" => "application/json"
-            },
-            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-        };
+    var w = dc.getWidth();
 
-        // De callback moet exact deze 'as' definities hebben
-        Communications.makeWebRequest(
-            url,
-            null,
-            options,
-            method(:onReceive) // Losse methode is stabieler dan een anonieme functie
-        );
+    // ---- Layout tuning (easy to tweak) ----
+    var startY = 20;
+    var labelGap = 30;
+    var sectionGap = 65;
+
+    var y = startY;
+
+    if (error) {
+      dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+      dc.drawText(
+        w / 2,
+        dc.getHeight() / 2,
+        Graphics.FONT_SMALL,
+        "No data",
+        Graphics.TEXT_JUSTIFY_CENTER
+      );
+      return;
     }
 
-    // Door de callback naar een aparte functie te verplaatsen lost de ERROR op
-    function onReceive(responseCode as Number, data as Dictionary or String or Null) as Void {
-        if (responseCode != 200 || data == null || !(data instanceof Dictionary)) {
-            error = true;
-            WatchUi.requestUpdate();
-            return;
-        }
+    // ---- SOLAR (GREEN) ----
+    dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
+    dc.drawText(w / 2, y, Graphics.FONT_XTINY, "SOLAR", Graphics.TEXT_JUSTIFY_CENTER);
+    y += labelGap;
+    dc.drawText(w / 2, y, Graphics.FONT_LARGE, solar.toString() + " W", Graphics.TEXT_JUSTIFY_CENTER);
 
-        try {
-            // Door 'as Dictionary' te gebruiken los je de WARNINGS op regels 54 en 57 op
-            var dict = data as Dictionary;
+    // ---- CONSUMPTION (RED) ----
+    y += sectionGap;
+    dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+    dc.drawText(w / 2, y, Graphics.FONT_XTINY, "CONSUMPTION", Graphics.TEXT_JUSTIFY_CENTER);
+    y += labelGap;
+    dc.drawText(w / 2, y, Graphics.FONT_LARGE, consumption.toString() + " W", Graphics.TEXT_JUSTIFY_CENTER);
 
-            if (dict.hasKey("solar")) {
-                solar = dict["solar"].toString();
-            }
-
-            if (dict.hasKey("power")) {
-                power = dict["power"].toString();
-            }
-        }
-        catch (ex) {
-            error = true;
-        }
-
-        WatchUi.requestUpdate();
-    }
-
-    function onUpdate(dc) {
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-        dc.clear();
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-
-        var w = dc.getWidth();
-        var y = 20;
-
-        if (error) {
-            dc.drawText(
-                w / 2,
-                dc.getHeight() / 2,
-                Graphics.FONT_SMALL,
-                "No data",
-                Graphics.TEXT_JUSTIFY_CENTER
-            );
-            return;
-        }
-
-        dc.drawText(w / 2, y, Graphics.FONT_XTINY, "SOLAR", Graphics.TEXT_JUSTIFY_CENTER);
-        y += 25; // Iets meer ruimte voor moderne schermen
-        dc.drawText(w / 2, y, Graphics.FONT_LARGE, solar + " W", Graphics.TEXT_JUSTIFY_CENTER);
-
-        y += 50;
-        dc.drawText(w / 2, y, Graphics.FONT_XTINY, "POWER", Graphics.TEXT_JUSTIFY_CENTER);
-        y += 25;
-        dc.drawText(w / 2, y, Graphics.FONT_LARGE, power + " W", Graphics.TEXT_JUSTIFY_CENTER);
-    }
+    // ---- TOTAL (WHITE) ----
+    y += sectionGap;
+    dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+    dc.drawText(w / 2, y, Graphics.FONT_XTINY, "TOTAL", Graphics.TEXT_JUSTIFY_CENTER);
+    y += labelGap;
+    dc.drawText(w / 2, y, Graphics.FONT_LARGE, total.toString() + " W", Graphics.TEXT_JUSTIFY_CENTER);
+  }
 }
